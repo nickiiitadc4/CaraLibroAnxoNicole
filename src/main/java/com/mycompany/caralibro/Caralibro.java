@@ -12,6 +12,6 @@ package com.mycompany.caralibro;
 public class Caralibro {
 
     public static void main(String[] args) {
-        System.out.println("");
+      
     }
 }
