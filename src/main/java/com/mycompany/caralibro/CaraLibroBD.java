@@ -9,8 +9,9 @@ public class CaraLibroBD {
     HashMap<String, List<String>> caraLibroBD = new HashMap<>();
     
     
-    public void obtenerPerfil(){
-        
+    public void obtenerPerfil(String nombre, String contraseña){
+        this.nombre = nombre;
+        this.contraseña = contraseña;
     
     }
 
