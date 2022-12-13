@@ -6,7 +6,7 @@ public class Comentario {
     public Date fecha;
     public String texto;
 
-    public Comentario() {
+    public Comentario(String texto) {
 
     }
 
