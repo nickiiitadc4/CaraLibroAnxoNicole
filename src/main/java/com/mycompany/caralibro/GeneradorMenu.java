@@ -53,7 +53,14 @@ public class GeneradorMenu {
     }
 
     private void crearPerfil() {
-
+        Scanner sc = new Scanner(System.in);
+        String nombre;
+        String contraseña;
+        System.out.println("Escribe o teu nome");
+        System.out.println("Escribe o teu contrasinal");
+        nombre = sc.nextLine();
+        contraseña = sc.nextLine();
+               
     }
 
     private void iniciarSesion() {
