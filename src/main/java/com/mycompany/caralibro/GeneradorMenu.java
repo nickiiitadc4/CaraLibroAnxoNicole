@@ -56,7 +56,7 @@ public class GeneradorMenu {
             nombre = sc.nextLine();
             System.out.println("Introduce o teu contrasinal");
             contraseña = sc.nextLine();
-        Perfil entrar = baseDatos.
+        Perfil entrar = baseDatos.ob
                 
         mostrarMenuinicial(entrar);
     }

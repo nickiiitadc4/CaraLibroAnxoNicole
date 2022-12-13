@@ -1,18 +1,28 @@
 package com.mycompany.caralibro;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CaraLibroBD {
     Scanner sc1 = new Scanner(System.in);
-    HashMap<String, List<String>> caraLibroBD = new HashMap<>();
+    ArrayList <String> perfiles = new ArrayList<>();
     
     
     public void obtenerPerfil(String nombre, String contraseña){
-        this.nombre = nombre;
-        this.contraseña = contraseña;
-    
+        String contr = contraseña;
+        String nombr = nombre;
+        boolean entrar = false;
+        if(!perfiles.isEmpty()){
+            while(!entrar){
+                for(int i = 0; i < perfiles.size();i++){
+                    
+                    if(perfiles.get(i).contains(nombr) && perfiles.get(i).contains(contr)){
+                        perfiles.get(i);
+                        entrar = true;
+                    }
+                }
+            }
+        }
     }
 
     public void buscarPerfil(){
