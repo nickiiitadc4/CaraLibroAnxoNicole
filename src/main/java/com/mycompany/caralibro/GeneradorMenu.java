@@ -3,33 +3,33 @@ package com.mycompany.caralibro;
 import java.util.Scanner;
 
 public class GeneradorMenu {
-
+    caraLibroBD baseDatos = new CaraLibroBD(); 
     public void mostrarMenuinicial(){
        
         
     }
     
-    public void mostrarMenuPrincipal(){
+    public void mostrarMenuPrincipal(Perfil p){
         
         
     }
 
-    public void mostrarBiografia(){
+    public void mostrarBiografia(Perfil p){
        
         
     }
 
-    public void mostrarSolicitudesDeAmistad(){
+    public void mostrarSolicitudesDeAmistad(Perfil p){
         
         
     }
 
-    public void mostrarListaAmigos(){
+    public void mostrarListaAmigos(Perfil p){
         
         
     }
 
-    public void mostrarMensajes(){
+    public void mostrarMensajes(Perfil p){
         
         
     }
@@ -45,39 +45,43 @@ public class GeneradorMenu {
     }
 
     private void iniciarSesion(){
-        
+        String nombre;
+        String contraseña;
         Scanner sc = new Scanner(System.in);
+        System.out.println("Iniciar sesión");
             System.out.println("Introduce o teu nome de usuario");
-            
+            nombre = sc.nextLine();
             System.out.println("Introduce o teu contrasinal");
+            contraseña = sc.nextLine();
+        Perfil entrar = baseDatos.
+                
+        mostrarMenuinicial(entrar);
+    }
+
+    private void cambiarEstado(Perfil p){
         
         
     }
 
-    private void cambiarEstado(){
+    private void escribirComentario(Publicacion pub, Perfil p){
         
         
     }
 
-    private void escribirComentario(){
+    private void hacerMeGusta(Publicacion pub){
         
         
     }
 
-    private void hacerMeGusta(){
-        
-        
-    }
-
-    private void escribirMensaje(){
+    private void escribirMensaje(Perfil remitente, Perfil destinatario){
         
     }
 
-    private void marcarMensajeComoLeido(){
+    private void marcarMensajeComoLeido(Mensaje m){
         
     }
 
-    private void eliminarMensaje(){
+    private void eliminarMensaje(Mensaje m){
         
     }
 
