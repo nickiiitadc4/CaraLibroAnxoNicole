@@ -12,6 +12,7 @@ package com.mycompany.caralibro;
 public class Caralibro {
 
     public static void main(String[] args) {
-      
+      GeneradorMenu xerador = new GeneradorMenu();
+        System.out.println(xerador);
     }
 }
