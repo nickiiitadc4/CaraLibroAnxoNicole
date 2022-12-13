@@ -7,7 +7,9 @@ public class Comentario {
     public String texto;
 
     public Comentario(String texto) {
-
+        this.texto = texto;
+        System.out.println("Publicado o " + fecha);
+        System.out.println(texto);
     }
 
 }
