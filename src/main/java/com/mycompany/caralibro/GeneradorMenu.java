@@ -1,5 +1,7 @@
 package com.mycompany.caralibro;
 
+import java.util.Scanner;
+
 public class GeneradorMenu {
 
     public void mostrarMenuinicial(){
@@ -44,6 +46,11 @@ public class GeneradorMenu {
 
     private void iniciarSesion(){
         
+        Scanner sc = new Scanner(System.in);
+            System.out.println("Introduce o teu nome de usuario");
+            
+            System.out.println("Introduce o teu contrasinal");
+        
         
     }
 
@@ -52,7 +59,7 @@ public class GeneradorMenu {
         
     }
 
-    private void escribitComentario(){
+    private void escribirComentario(){
         
         
     }
