@@ -4,9 +4,12 @@ import java.util.Scanner;
 
 public class GeneradorMenu {
     caraLibroBD baseDatos = new CaraLibroBD(); 
+    
     public void mostrarMenuinicial(){
-       
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Benvido");
+        System.out.println("Iniciar Sesión");
+        System.out.println("Rexistrarse");
     }
     
     public void mostrarMenuPrincipal(Perfil p){
