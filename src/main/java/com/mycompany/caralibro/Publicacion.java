@@ -17,11 +17,11 @@ public class Publicacion {
        
     }
 
-    public void añadirMeGusta(){
+    public void añadirMeGusta(Perfil autor){
         
     }
 
-    public void añadirComentario(){
+    public void añadirComentario(Comentario c){
         
     }
 }
