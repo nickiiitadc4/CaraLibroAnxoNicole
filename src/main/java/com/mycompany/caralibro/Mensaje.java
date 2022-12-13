@@ -8,7 +8,7 @@ public class Mensaje {
     public String texto;
     public Boolean leido;
 
-    public Mensaje(){
+    public Mensaje(String texto, Perfil remitente){
         this.texto = texto;
     }
 
