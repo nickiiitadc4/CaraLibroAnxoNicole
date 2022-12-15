@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class GeneradorMenu {
 
-    caraLibroBD baseDatos = new CaraLibroBD();
+    CaraLibroBD baseDatos = new CaraLibroBD();
 
     public void mostrarMenuinicial() {
         Scanner sc = new Scanner(System.in);
@@ -72,9 +72,9 @@ public class GeneradorMenu {
         nombre = sc.nextLine();
         System.out.println("Introduce o teu contrasinal");
         contraseña = sc.nextLine();
-        Perfil entrar = baseDatos.ob
+        Perfil entrar = baseDatos.obtenerPerfil(nombre,contraseña);
                 
-        mostrarMenuinicial(entrar);
+        mostrarMenuPrincipal(entrar);
     }
 
     private void cambiarEstado(Perfil p) {
