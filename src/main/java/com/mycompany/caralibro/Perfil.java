@@ -7,8 +7,8 @@ public class Perfil {
     public String estado;
 
     public Perfil(String contraseña, String nombre) {
-         this.nombre = nombre;
-         this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.contraseña = contraseña;
     }
 
     public void añadirAmigo(){

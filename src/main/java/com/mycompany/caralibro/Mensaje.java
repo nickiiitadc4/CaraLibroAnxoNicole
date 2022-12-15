@@ -7,9 +7,11 @@ public class Mensaje {
     public LocalDateTime fecha;
     public String texto;
     public Boolean leido;
-
+    Perfil remitente;
     public Mensaje(String texto, Perfil remitente){
         this.texto = texto;
+        this.fecha = LocalDateTime.now();
+        this.remitente = remitente;
     }
 
 }

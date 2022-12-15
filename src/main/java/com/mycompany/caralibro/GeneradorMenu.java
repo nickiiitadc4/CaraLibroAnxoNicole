@@ -15,7 +15,7 @@ public class GeneradorMenu {
         System.out.println("Benvido");
         System.out.println("(1)Iniciar Sesión");
         System.out.println("(2)Rexistrarse");
-
+        
         int opcionesIniciales = sc.nextInt();
         switch (opcionesIniciales) {
             case 1:
@@ -37,13 +37,37 @@ public class GeneradorMenu {
      */
     public void mostrarMenuPrincipal(Perfil p) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Estado");
-        System.out.println("Biografía");
-        System.out.println("Solicitudes de amistad");
-        System.out.println("Lista de amigos");
-        System.out.println("Mensajes");
-        System.out.println("Cerrar sesión");
+        System.out.println("(1)Estado");
+        System.out.println("(2)Biografía");
+        System.out.println("(3)Solicitudes de amistad");
+        System.out.println("(4)Lista de amigos");
+        System.out.println("(5)Mensajes");
+        System.out.println("(6)Cerrar sesión");
         int opcionesPrincipales = sc.nextInt();
+        switch (opcionesPrincipales) {
+            case 1:
+                System.out.println();
+                break;
+            case 2:
+                mostrarBiografia(p);
+                break;
+            case 3:
+                mostrarSolicitudesDeAmistad(p);
+                break;
+            case 4:
+                mostrarListaAmigos(p);
+                break;
+            case 5:
+                mostrarMensajes(p);
+                break;
+            case 6:
+                cerrarSesion();
+                break;
+            default:
+                System.out.println("Introduce unha opción válida entre 1 e 6");
+                mostrarMenuPrincipal(p);
+                break;
+        }
     }
 
     /**
@@ -51,7 +75,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarBiografia(Perfil p) {
-
+        Publicacion pub = new Publicacion();
     }
 
     /**
@@ -59,7 +83,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarSolicitudesDeAmistad(Perfil p) {
-
+        
     }
 
     /**
@@ -97,7 +121,6 @@ public class GeneradorMenu {
         System.out.println("Escribe o teu contrasinal");
         nombre = sc.nextLine();
         contraseña = sc.nextLine();
-        baseDatos.añadirPerfil();
     }
 
     /**
