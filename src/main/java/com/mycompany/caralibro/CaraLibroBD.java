@@ -6,16 +6,19 @@ import java.util.Scanner;
 public class CaraLibroBD {
 
     Scanner entrada = new Scanner(System.in);
-    ArrayList<String> perfiles = new ArrayList<>();
+    ArrayList<Perfil> perfiles = new ArrayList<>();
 
     public void obtenerPerfil(String nombre, String contraseña) {
         String contr = contraseña;
         String nombr = nombre;
         boolean entrar = false;
+        //un flar, miro si esta vacio los perfiles
         if (!perfiles.isEmpty()) {
+            //flar
             while (!entrar) {
                 for (int i = 0; i < perfiles.size(); i++) {
 
+                    //recorro el array y comparo el nombre y las contraseñas
                     if (perfiles.get(i).contains(nombr) && perfiles.get(i).contains(contr)) {
                         perfiles.get(i);
                         entrar = true;
@@ -23,36 +26,30 @@ public class CaraLibroBD {
                 }
 
             }
-        }else
+        } else {
             System.out.print("No existe el usuario");
-            
-            
+        }
+
     }
 
-    public void buscarPerfil(Perfil nombre) {
-        
-    
+    public Perfil buscarPerfil(String nombre) {
+
+        //recorro el array
         for (int i = 0; i < perfiles.size(); i++) {
 
-            if (perfiles.contains(nombre)){
-                
-                   System.out.print("El perfil si existe");
-                   
-               
-            }else{
-                System.out.print("El perfil no existe");
+            //si contiene el nombre
+            if (perfiles.get(i).nombre.equals(nombre)) {
+                return perfiles.get(i);
+
             }
 
         }
-        
-            
-        
+
+        return null;
     }
 
     public void añadirPerfil() {
-       
-    }
 
-    
+    }
 
 }
