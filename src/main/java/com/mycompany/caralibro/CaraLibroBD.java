@@ -19,7 +19,7 @@ public class CaraLibroBD {
                 for (int i = 0; i < perfiles.size(); i++) {
 
                     //recorro el array y comparo el nombre y las contraseñas
-                    if (perfiles.get(i).contains(nombr) && perfiles.get(i).contains(contr)) {
+                    if (perfiles.get(i).equals(nombr) && perfiles.get(i).equals(contr)) {
                         perfiles.get(i);
                         entrar = true;
                     }
