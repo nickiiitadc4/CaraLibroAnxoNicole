@@ -12,7 +12,14 @@ public class Perfil {
     
     ArrayList <Perfil> amigos= new ArrayList<>();
     ArrayList <Perfil> solicitudAmistad = new ArrayList<>();
+    
+    
+    
     public Perfil(String contraseña, String nombre) {
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+    }
+    public Perfil(){
         this.nombre = nombre;
         this.contraseña = contraseña;
     }

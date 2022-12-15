@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 public class CaraLibroBD {
 
-    Scanner entrada = new Scanner(System.in);
+    
     ArrayList<Perfil> perfiles = new ArrayList<>();
 
     public void obtenerPerfil(String nombre, String contraseña) {
+        Scanner entrada = new Scanner(System.in);
+        
         String contr = contraseña;
         String nombr = nombre;
         boolean entrar = false;
