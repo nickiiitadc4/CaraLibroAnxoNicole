@@ -10,12 +10,12 @@ public class GeneradorMenu {
      * Mostra o menu inicial ao iniciar o programa
      *
      */
-    public void mostrarMenuinicial() {
+    public void mostrarMenuInicial() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Benvido");
         System.out.println("(1)Iniciar Sesión");
         System.out.println("(2)Rexistrarse");
-        
+
         int opcionesIniciales = sc.nextInt();
         switch (opcionesIniciales) {
             case 1:
@@ -75,14 +75,6 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarBiografia(Perfil p) {
-        Publicacion pub = new Publicacion();
-    }
-
-    /**
-     *
-     * @param p
-     */
-    public void mostrarSolicitudesDeAmistad(Perfil p) {
         
     }
 
@@ -90,8 +82,16 @@ public class GeneradorMenu {
      *
      * @param p
      */
-    public void mostrarListaAmigos(Perfil p) {
+    public void mostrarSolicitudesDeAmistad(Perfil p) {
+            
+    }
 
+    /**
+     *
+     * @param p
+     */
+    public void mostrarListaAmigos(Perfil p) {
+            
     }
 
     /**
@@ -106,21 +106,34 @@ public class GeneradorMenu {
      *
      */
     public void cerrarSesion() {
-
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Queres cerrar sesión? SI(0) NON(1)");
+        int cerrar = sc.nextInt();
+        if (cerrar == 0) {
+            mostrarMenuInicial();
+        } else if(cerrar == 1){
+            
+        }
     }
-
-    /**
-     * Crea un perfil co nome e contraseña que o usuario pase por pantalla
-     *
-     */
+        /**
+         * Crea un perfil co nome e contraseña que o usuario pase por pantalla e
+         * añadeo a caraLibroBD
+         *
+         */
     private void crearPerfil() {
         Scanner sc = new Scanner(System.in);
         String nombre;
         String contraseña;
-        System.out.println("Escribe o teu nome");
-        System.out.println("Escribe o teu contrasinal");
+        System.out.println("Registrarse\n");
+        System.out.println("Escribe tu nombre:");
         nombre = sc.nextLine();
+
+        System.out.println("Escribe tu Contraseña:");
         contraseña = sc.nextLine();
+
+        Perfil perf = new Perfil(nombre, contraseña);
+        baseDatos.añadirPerfil();
+
     }
 
     /**
@@ -132,15 +145,10 @@ public class GeneradorMenu {
     private void iniciarSesion() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tu  nombre:");
-        
-        
-        
-            
 
-        }
         System.out.println("Introduzca su contraseña:");
-            String contraseña = sc.nextLine();
-        
+        String contraseña = sc.nextLine();
+
     }
 
     /**
@@ -149,7 +157,7 @@ public class GeneradorMenu {
      * @param p
      */
     private void cambiarEstado(Perfil p) {
-
+        
     }
 
     /**
@@ -177,7 +185,7 @@ public class GeneradorMenu {
      * @param destinatario
      */
     private void escribirMensaje(Perfil remitente, Perfil destinatario) {
-
+        
     }
 
     /**
@@ -196,4 +204,5 @@ public class GeneradorMenu {
 
     }
 
-}
+
+
