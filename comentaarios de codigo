@@ -1,0 +1,16 @@
+//RECORRO EL ARRAY PARA BUSCAR SI HAY UN NOMBRE REPETIDO
+        for (int i = 0; i < perfiles.size(); i++) {
+
+            System.out.println("Introduce tu  nombre:");
+            String nuevoNombre = entrada.nextLine();
+
+            while(perfiles.contains(nuevoNombre)) {
+                
+                System.out.println("Introduzca de nuevo su nombre:");
+                String nuevoNombre1 = entrada.nextLine();
+                
+               
+            } System.out.print("Introduzca su contraseña para registrarse:");
+                String contraseña = entrada.nextLine();
+
+        }
