@@ -20,7 +20,7 @@ public class Publicacion {
     
     //creamos el objeto d esta clase, al no dar parametros nos daria fecha actual
     Date fecha = new Date();
-    
+    Comentario comentarioPublicacion = new Comentario();
     
     public String texto;
     ArrayList<Perfil> perfiles;
@@ -51,7 +51,10 @@ public class Publicacion {
     } 
 
     public void añadirComentario(Comentario c) {
-
+           
+       comentarioPublicacion.comentarios.add(c);
+       
+       
     }
 
     public Date getFecha() {
