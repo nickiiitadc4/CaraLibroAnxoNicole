@@ -40,7 +40,7 @@ public class Perfil {
     }
 
     public void añadirPublicacion(){
-        publicacion1.publicaciones;
+    publicacion1.getPublicaciones();
     }
 
     public void añadirSolicitudDeAmistad(Perfil perfilSolicitante){
