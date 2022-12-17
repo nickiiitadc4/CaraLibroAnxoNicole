@@ -156,8 +156,9 @@ public class GeneradorMenu {
         System.out.println("Escribe tu Contraseña:");
         contraseña = sc.nextLine();
 
-        Perfil perf = new Perfil(nombre, contraseña);
+        Perfil novo = new Perfil(nombre, contraseña);
         baseDatos.añadirPerfil();
+        mostrarMenuInicial();
 
     }
 
