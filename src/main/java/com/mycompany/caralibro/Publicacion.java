@@ -49,4 +49,37 @@ public class Publicacion {
     public void añadirComentario(Comentario c) {
 
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public ArrayList<Perfil> getPerfiles() {
+        return perfiles;
+    }
+
+    public void setPerfiles(ArrayList<Perfil> perfiles) {
+        this.perfiles = perfiles;
+    }
+
+    public ArrayList<Publicacion> getPublicaciones() {
+        return publicaciones;
+    }
+
+    public void setPublicaciones(ArrayList<Publicacion> publicaciones) {
+        this.publicaciones = publicaciones;
+    }
+    
 }

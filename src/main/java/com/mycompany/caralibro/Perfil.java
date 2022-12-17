@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Perfil {
     
     CaraLibroBD baseDatos = new CaraLibroBD();
+    Publicacion publicacion1 = new Publicacion();
     
     public String contraseña;
     public String nombre;
@@ -39,7 +40,7 @@ public class Perfil {
     }
 
     public void añadirPublicacion(){
-        
+        publicacion1.publicaciones;
     }
 
     public void añadirSolicitudDeAmistad(Perfil perfilSolicitante){
@@ -72,6 +73,62 @@ public class Perfil {
 
     public void eliminarMensaje(){
         
+    }
+
+    public CaraLibroBD getBaseDatos() {
+        return baseDatos;
+    }
+
+    public void setBaseDatos(CaraLibroBD baseDatos) {
+        this.baseDatos = baseDatos;
+    }
+
+    public Publicacion getPublicacion1() {
+        return publicacion1;
+    }
+
+    public void setPublicacion1(Publicacion publicacion1) {
+        this.publicacion1 = publicacion1;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public ArrayList<Perfil> getAmigos() {
+        return amigos;
+    }
+
+    public void setAmigos(ArrayList<Perfil> amigos) {
+        this.amigos = amigos;
+    }
+
+    public ArrayList<Perfil> getSolicitudAmistad() {
+        return solicitudAmistad;
+    }
+
+    public void setSolicitudAmistad(ArrayList<Perfil> solicitudAmistad) {
+        this.solicitudAmistad = solicitudAmistad;
     }
 
 
