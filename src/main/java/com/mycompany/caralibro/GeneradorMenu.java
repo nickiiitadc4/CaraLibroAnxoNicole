@@ -1,5 +1,6 @@
 package com.mycompany.caralibro;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GeneradorMenu {
@@ -83,20 +84,20 @@ public class GeneradorMenu {
      */
     public void mostrarBiografia(Perfil p) {
         Scanner op = new Scanner(System.in);
-
+        
         int create;
         System.out.println("Nueva Publicacion");
         create = op.nextInt();
         if (create == 1) {
             String text = null;
             Publicacion n = new Publicacion(p, text);
-            p.añadirPublicación(n);
+            p.añadirPublicacion(n);
 
-            for (int i = 0; i < p.publicaciones.size(); i++) {
+            for (int i = 0; i < p.publicacionesUsuario.size(); i++) {
                 String auth = p.nombre;
-                if (p.publicaciones.get(i).texto.contentEquals(auth)) {
-                    System.out.println(p.publicaciones.get(i).texto);
-                    System.out.println(p.publicaciones.get(i).fecha);
+                if (p.publicacionesUsuario.get(i).texto.contentEquals(auth)) {
+                    System.out.println(p.publicacionesUsuario.get(i).texto);
+                    System.out.println(p.publicacionesUsuario.get(i).fecha);
 
                 }
             }
