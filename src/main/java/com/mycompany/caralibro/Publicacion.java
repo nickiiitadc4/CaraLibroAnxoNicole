@@ -39,7 +39,7 @@ public class Publicacion {
         
         
         publicaciones.get(contador).fecha.after(fecha);
-        publicaciones.add(new Publicacion (Perfil autor, String texto));
+        publicaciones.add(contador,new Publicacion(autor, texto));
     }
         
         
