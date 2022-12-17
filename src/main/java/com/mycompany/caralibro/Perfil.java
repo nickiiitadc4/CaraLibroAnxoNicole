@@ -6,6 +6,7 @@ public class Perfil {
     
     CaraLibroBD baseDatos = new CaraLibroBD();
     Publicacion publicacion1 = new Publicacion();
+    Mensaje mensajePerfil = new Mensaje();
     
     public String contraseña;
     public String nombre;
@@ -61,21 +62,43 @@ public class Perfil {
 
     public void aceptarSolicitudDeAmistad(Perfil perfilSolicitante){
         
+        amigos.add(perfilSolicitante);
         
     }
 
-    public void denegarSolicitudDeAmistad(){
+    public void denegarSolicitudDeAmistad(Perfil perfilSolicitante){
+        
+       
+        solicitudAmistad.remove(perfilSolicitante);
+        
         
     }
 
-    public void añadirMensaje(){
+    public void añadirMensaje(Mensaje m){
+        
+       
         
     }
 
-    public void eliminarMensaje(){
+    public void eliminarMensaje(Mensaje m){
+        
+        mensajePerfil.mensajes.remove(m);
         
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public CaraLibroBD getBaseDatos() {
         return baseDatos;
     }
