@@ -15,9 +15,10 @@ public class Comentario {
         this.texto = texto;
         
        
-        for (int contador = 0; contador>0; contador--) {
-
+        for (int contador = 0; contador < comentarios.size(); contador ++) {
             
+            comentarios.get(contador).fecha.before(fecha);
+            comentarios.add(new Comentario(perfilcomenta, texto));
             
             
             

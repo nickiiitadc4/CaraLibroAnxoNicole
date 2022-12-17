@@ -16,6 +16,8 @@ import java.util.Collection;
 
 public class Publicacion {
 
+  
+    
     //creamos el objeto d esta clase, al no dar parametros nos daria fecha actual
     Date fecha = new Date();
     
@@ -27,15 +29,17 @@ public class Publicacion {
     public Publicacion(){
         
     }
+    
     public Publicacion(Perfil autor, String texto) {
         
+          
     //ORDENAMOS EL ARRAY POR FECHA, lo lemos de al rves 
     
     for(int contador= 0; contador< publicaciones.size(); contador++){
         
         
         publicaciones.get(contador).fecha.after(fecha);
-        
+        publicaciones.add(new Publicacion (Perfil autor, String texto));
     }
         
         
