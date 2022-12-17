@@ -111,7 +111,6 @@ public class GeneradorMenu {
      */
     public void mostrarSolicitudesDeAmistad(Perfil p) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(p.amigos);
         int añadir;
         System.out.println("Añadir (1), Eliminar(2)");
         añadir = sc.nextInt();
@@ -134,7 +133,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarListaAmigos(Perfil p) {
-
+        System.out.println(p.amigos);
     }
 
     /**
