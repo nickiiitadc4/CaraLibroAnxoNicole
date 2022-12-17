@@ -13,7 +13,7 @@ public class Perfil {
     
     ArrayList <Perfil> amigos= new ArrayList<>();
     ArrayList <Perfil> solicitudAmistad = new ArrayList<>();
-    
+    ArrayList <Publicacion> publicacionesUsuario = new ArrayList<>();
     
     
     public Perfil(String contraseña, String nombre) {
@@ -39,8 +39,9 @@ public class Perfil {
         
     }
 
-    public void añadirPublicacion(){
-    publicacion1.getPublicaciones();
+    public void añadirPublicacion(Publicacion pub){
+        
+        
     }
 
     public void añadirSolicitudDeAmistad(Perfil perfilSolicitante){
