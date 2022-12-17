@@ -7,6 +7,8 @@ public class GeneradorMenu {
 
     CaraLibroBD baseDatos = new CaraLibroBD();
     Perfil amigo = new Perfil();
+    Comentario comment = new Comentario();
+    Mensaje message = new Mensaje();
 
     /**
      * Mostra o menu inicial ao iniciar o programa
@@ -85,7 +87,7 @@ public class GeneradorMenu {
      */
     public void mostrarBiografia(Perfil p) {
         Scanner op = new Scanner(System.in);
-        
+
         int create;
         System.out.println("Nueva Publicacion");
         create = op.nextInt();
@@ -112,7 +114,9 @@ public class GeneradorMenu {
     public void mostrarSolicitudesDeAmistad(Perfil p) {
         Scanner sc = new Scanner(System.in);
         int añadir;
-        System.out.println("Añadir (1), Eliminar(2)");
+        for (int i = 0; i < amigo.amigos.size(); i++) {
+            System.out.println("Añadir (1), Eliminar(2)");
+        }
         añadir = sc.nextInt();
         switch (añadir) {
             case 1:
@@ -126,7 +130,6 @@ public class GeneradorMenu {
                 break;
         }
     }
-    
 
     /**
      *
@@ -141,7 +144,17 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarMensajes(Perfil p) {
-
+        Scanner sc = new Scanner(System.in);
+        int menu;
+        System.out.println("Ver mensaxes (1) /n Volver ao menú principal (2)");
+        menu = sc.nextInt();
+        if (menu == 1) {
+            for (int i = 0; i < message.mensajes.size(); i++) {
+                System.out.println(message.mensajes);
+            }
+        } else if (menu == 2) {
+            mostrarMenuPrincipal(p);
+        }
     }
 
     /**
