@@ -46,7 +46,14 @@ public class GeneradorMenu {
         int opcionesPrincipales = sc.nextInt();
         switch (opcionesPrincipales) {
             case 1:
-                System.out.println();
+                Scanner sc2 = new Scanner(System.in);
+                System.out.println("Queres cambiar o teu estado?");
+                int cambiar = sc2.nextInt();
+                if (cambiar == 1) {
+                    cambiarEstado(p);
+                } else {
+                    System.out.println();
+                }
                 break;
             case 2:
                 mostrarBiografia(p);
@@ -75,7 +82,25 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarBiografia(Perfil p) {
-        
+        Scanner op = new Scanner(System.in);
+
+        int create;
+        System.out.println("Nueva Publicacion");
+        create = op.nextInt();
+        if (create == 1) {
+            String text = null;
+            Publicacion n = new Publicacion(p, text);
+            p.añadirPublicación(n);
+
+            for (int i = 0; i < p.publicaciones.size(); i++) {
+                String auth = p.nombre;
+                if (p.publicaciones.get(i).texto.contentEquals(auth)) {
+                    System.out.println(p.publicaciones.get(i).texto);
+                    System.out.println(p.publicaciones.get(i).fecha);
+
+                }
+            }
+        }
     }
 
     /**
@@ -83,7 +108,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarSolicitudesDeAmistad(Perfil p) {
-            
+
     }
 
     /**
@@ -91,7 +116,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarListaAmigos(Perfil p) {
-            
+
     }
 
     /**
@@ -107,19 +132,19 @@ public class GeneradorMenu {
      */
     public void cerrarSesion() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Queres cerrar sesión? SI(0) NON(1)");
+        System.out.println("Preme 0 para pechar a tua sesión");
         int cerrar = sc.nextInt();
         if (cerrar == 0) {
             mostrarMenuInicial();
-        } else if(cerrar == 1){
-            
         }
+
     }
-        /**
-         * Crea un perfil co nome e contraseña que o usuario pase por pantalla e
-         * añadeo a caraLibroBD
-         *
-         */
+
+    /**
+     * Crea un perfil co nome e contraseña que o usuario pase por pantalla e
+     * añadeo a caraLibroBD
+     *
+     */
     private void crearPerfil() {
         Scanner sc = new Scanner(System.in);
         String nombre;
@@ -157,7 +182,19 @@ public class GeneradorMenu {
      * @param p
      */
     private void cambiarEstado(Perfil p) {
-        
+        Scanner sc = new Scanner(System.in);
+        String estado;
+        int salir = 0;
+        System.out.println("Pulsa 1 para salir");
+        System.out.println("Nuevo estado:\n");
+        estado = sc.nextLine();
+
+        p.estado = estado;
+        mostrarMenuPrincipal(p);
+        if (sc.nextInt() == 1) {
+            mostrarMenuPrincipal(p);
+        }
+
     }
 
     /**
@@ -185,7 +222,7 @@ public class GeneradorMenu {
      * @param destinatario
      */
     private void escribirMensaje(Perfil remitente, Perfil destinatario) {
-        
+
     }
 
     /**
@@ -203,6 +240,3 @@ public class GeneradorMenu {
     private void eliminarMensaje(Mensaje m) {
 
     }
-
-
-
