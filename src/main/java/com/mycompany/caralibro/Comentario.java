@@ -1,15 +1,28 @@
 package com.mycompany.caralibro;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Comentario {
+    
+    Publicacion publicacion1 = new Publicacion();
     public Date fecha;
     public String texto;
+    ArrayList<Comentario> comentarios = new ArrayList<>();
 
-    public Comentario(String texto) {
+    public Comentario(Perfil perfilcomenta, String texto) {
         this.texto = texto;
-        System.out.println("Publicado o " + fecha);
-        System.out.println(texto);
+        
+       
+        for (int contador = 0; contador>0; contador--) {
+
+            
+            
+            
+            
+        }
+        
     }
 
 }

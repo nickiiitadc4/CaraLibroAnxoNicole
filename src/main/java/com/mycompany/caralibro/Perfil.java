@@ -48,8 +48,9 @@ public class Perfil {
         if(baseDatos.buscarPerfil(nombre)!=null){
            
            solicitudAmistad.add(perfilSolicitante);
-       }else 
+       }else {
             System.out.print("NO EXISTE EL PERFIL BUSCADO");
+        }
        
         
         
