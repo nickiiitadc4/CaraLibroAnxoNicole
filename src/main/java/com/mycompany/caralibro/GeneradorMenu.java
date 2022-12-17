@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class GeneradorMenu {
 
     CaraLibroBD baseDatos = new CaraLibroBD();
+    Perfil amigo = new Perfil();
 
     /**
      * Mostra o menu inicial ao iniciar o programa
@@ -109,8 +110,24 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarSolicitudesDeAmistad(Perfil p) {
-
+        Scanner sc = new Scanner(System.in);
+        System.out.println(p.amigos);
+        int añadir;
+        System.out.println("Añadir (1), Eliminar(2)");
+        añadir = sc.nextInt();
+        switch (añadir) {
+            case 1:
+                amigo.añadirAmigo(p);
+                break;
+            case 2:
+                amigo.amigos.remove(p);
+                break;
+            default:
+                mostrarMenuPrincipal(p);
+                break;
+        }
     }
+    
 
     /**
      *
