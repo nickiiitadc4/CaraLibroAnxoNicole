@@ -41,7 +41,7 @@ public class Perfil {
 
     public void añadirPublicacion(Publicacion pub){
         
-        
+        publicacionesUsuario.add(pub);
     }
 
     public void añadirSolicitudDeAmistad(Perfil perfilSolicitante){
