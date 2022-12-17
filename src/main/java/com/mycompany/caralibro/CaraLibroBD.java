@@ -50,7 +50,7 @@ public class CaraLibroBD {
         return null;
     }
 
-    public void añadirPerfil() {
+    public void añadirPerfil(Perfil novoPerfil) {
 
     }
 
