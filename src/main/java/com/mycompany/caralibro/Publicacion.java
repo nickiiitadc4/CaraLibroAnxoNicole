@@ -43,7 +43,7 @@ public class Publicacion {
 
     public void añadirMeGusta(Perfil autor) {
         
-        
+    
        
         
     }
