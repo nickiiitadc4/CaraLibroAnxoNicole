@@ -70,6 +70,16 @@ public class GeneradorMenu {
                 break;
             case 5:
                 mostrarMensajes(p);
+                System.out.println("Escribir mensaxe (1) /n Marcar como lido (2) /n Eliminar mensaxe (3)");
+                Scanner sc3 = new Scanner(System.in);
+                int dm = sc3.nextInt();
+                if(dm == 1){
+                    escribirMensaje(p, p);
+                } else if (dm == 2){
+                    marcarMensajeComoLeido(m);
+                } else if (dm == 3){
+                    eliminarMensaje(m);
+                }
                 break;
             case 6:
                 cerrarSesion();
@@ -328,3 +338,4 @@ public class GeneradorMenu {
             mostrarMenuPrincipal(p);
         }
     }
+}
