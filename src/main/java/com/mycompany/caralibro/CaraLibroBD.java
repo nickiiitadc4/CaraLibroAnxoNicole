@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CaraLibroBD {
 
-    
+    Perfil perfilesBD = new Perfil();
     ArrayList<Perfil> perfiles = new ArrayList<>();
 
     public void obtenerPerfil(String nombre, String contraseña) {
@@ -51,7 +51,9 @@ public class CaraLibroBD {
     }
 
     public void añadirPerfil(Perfil novoPerfil) {
-
+        
+        perfiles.add(novoPerfil);
+                
     }
 
 }
