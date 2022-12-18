@@ -33,8 +33,9 @@ public class Perfil {
        if(baseDatos.buscarPerfil(nombre)!=null){
            
            amigos.add(perfil);
-       }else 
-            System.out.print("NO EXISTE EL AMIGO");
+       }else {
+           System.out.print("NO EXISTE EL AMIGO");
+       }
        
         
         
@@ -76,7 +77,7 @@ public class Perfil {
 
     public void añadirMensaje(Mensaje m){
         
-       
+        
         
     }
 
