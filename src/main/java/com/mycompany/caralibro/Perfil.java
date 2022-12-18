@@ -45,6 +45,8 @@ public class Perfil {
 
     public void añadirPublicacion(Publicacion pub) {
 
+        // leemos al reves el horario , para verlo ordenarlo por fecha7
+        
         for (int contador = publicacionesUsuario.size(); contador > 0; contador--) {
 
             publicacionesUsuario.add(contador, pub);
