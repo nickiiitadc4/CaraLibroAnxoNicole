@@ -9,7 +9,6 @@ public class GeneradorMenu {
     Perfil amigo = new Perfil();
     Comentario comment = new Comentario();
     Mensaje message = new Mensaje();
-    
 
     /**
      * Mostra o menu inicial ao iniciar o programa
@@ -186,7 +185,7 @@ public class GeneradorMenu {
 
         System.out.println("Escribe tu Contraseña:");
         contraseña = sc.nextLine();
-        
+
         Perfil p = new Perfil(contraseña, nombre);
         baseDatos.añadirPerfil(p);
         mostrarMenuInicial();
@@ -203,11 +202,11 @@ public class GeneradorMenu {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tu  nombre:");
         String nombre = sc.nextLine();
-        
+
         System.out.println("Introduzca su contraseña:");
         String contraseña = sc.nextLine();
-        
-        if(baseDatos.perfiles.contains(nombre) && baseDatos.perfiles.contains(contraseña)){
+
+        if (baseDatos.perfiles.contains(nombre) && baseDatos.perfiles.contains(contraseña)) {
             mostrarMenuPrincipal();
         } else {
             System.out.println("Perfil incorrecto, intentelo de nuevo");
@@ -248,7 +247,7 @@ public class GeneradorMenu {
         Scanner sc = new Scanner(System.in);
         int escribir;
         System.out.println("Escribir un comentario(1), volver ao menú principal (2)");
-        escribir=sc.nextInt();
+        escribir = sc.nextInt();
         switch (escribir) {
             case 1:
                 pub.añadirComentario(comment);
@@ -271,10 +270,10 @@ public class GeneradorMenu {
         int like;
         System.out.println("Da like(1) /n, Volve ao menú (2)");
         like = sc.nextInt();
-        if(like==1){
+        if (like == 1) {
             pub.añadirMeGusta(amigo);
-        } else if(like == 2){
-            mostrarMenuPrincipal(p);
+        } else if (like == 2) {
+            mostrarMenuPrincipal();
         }
     }
 
@@ -288,8 +287,12 @@ public class GeneradorMenu {
         int dm;
         System.out.println("Escribir mensaje (1) /n Volver ao menú (2)");
         dm = sc.nextInt();
-        if(dm==1){
-            
+        if (dm == 1) {
+            System.out.println(remitente + "Escribe a túa mensaxe");
+            message.texto = sc.nextLine();
+            destinatario.añadirMensaje(message);
+        } else {
+            mostrarMenuPrincipal(remitente);
         }
     }
 
@@ -298,7 +301,15 @@ public class GeneradorMenu {
      * @param m
      */
     private void marcarMensajeComoLeido(Mensaje m) {
-
+        Scanner sc = new Scanner(System.in);
+        int dm;
+        System.out.println("Marcar mensaxe como leído (1) /n Volver ao menú (2)");
+        dm = sc.nextInt();
+        if (dm == 1) {
+            m.leido = true;
+        } else if (dm == 2) {
+            mostrarMenuPrincipal();
+        }
     }
 
     /**
@@ -306,5 +317,14 @@ public class GeneradorMenu {
      * @param m
      */
     private void eliminarMensaje(Mensaje m) {
-
+        Perfil p = new Perfil();
+        Scanner sc = new Scanner(System.in);
+        int dm;
+        System.out.println("Eliminar mensaxe (1) /n Volver ao menú(2)");
+        dm = sc.nextInt();
+        if (dm == 1) {
+            p.eliminarMensaje(m);
+        } else if (dm == 2) {
+            mostrarMenuPrincipal(p);
+        }
     }
