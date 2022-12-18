@@ -3,103 +3,102 @@ package com.mycompany.caralibro;
 import java.util.ArrayList;
 
 public class Perfil {
-    
+
     CaraLibroBD baseDatos = new CaraLibroBD();
     Publicacion publicacion1 = new Publicacion();
     Mensaje mensajePerfil = new Mensaje();
-    
+    GeneradorMenu generadorMenuCaraLibro = new GeneradorMenu();
+
     public String contraseña;
     public String nombre;
     public String estado;
-    
-    ArrayList <Perfil> amigos= new ArrayList<>();
-    ArrayList <Perfil> solicitudAmistad = new ArrayList<>();
-    ArrayList <Publicacion> publicacionesUsuario = new ArrayList<>();
-    
-    
+
+    ArrayList<Perfil> amigos = new ArrayList<>();
+    ArrayList<Perfil> solicitudAmistad = new ArrayList<>();
+    ArrayList<Publicacion> publicacionesUsuario = new ArrayList<>();
+
     public Perfil(String contraseña, String nombre) {
         this.nombre = nombre;
         this.contraseña = contraseña;
     }
-    public Perfil(){
+
+    public Perfil() {
         this.nombre = nombre;
         this.contraseña = contraseña;
     }
 
-    public void añadirAmigo(Perfil perfil){
-        
-       //LLAMO AL METODO BUSCAR PERFIL Y ME DEVUELVE 
-      
-       if(baseDatos.buscarPerfil(nombre)!=null){
-           
-           amigos.add(perfil);
-       }else {
-           System.out.print("NO EXISTE EL AMIGO");
-       }
-       
-        
-      
-    }
+    public void añadirAmigo(Perfil perfil) {
 
-    public void añadirPublicacion(Publicacion pub){
-        
-        publicacionesUsuario.add(pub);
-    }
+        for (int contador = amigos.size(); contador > 0; contador--) {
+            //LLAMO AL METODO BUSCAR PERFIL Y ME DEVUELVE 
+            if (baseDatos.buscarPerfil(nombre) != null) {
 
-    public void añadirSolicitudDeAmistad(Perfil perfilSolicitante){
-        
-        
-        if(baseDatos.buscarPerfil(nombre)!=null){
-           
-           solicitudAmistad.add(perfilSolicitante);
-       }else {
-            System.out.print("NO EXISTE EL PERFIL BUSCADO");
+                amigos.add(contador, perfil);
+
+            } else {
+
+                System.out.print("NO EXISTE EL AMIGO");
+            }
         }
-       
-        
-        
-       
+
     }
 
-    public void aceptarSolicitudDeAmistad(Perfil perfilSolicitante){
-        
-        amigos.add(perfilSolicitante);
-        
+    public void añadirPublicacion(Publicacion pub) {
+
+        for (int contador = publicacionesUsuario.size(); contador > 0; contador--) {
+
+            publicacionesUsuario.add(contador, pub);
+        }
     }
 
-    public void denegarSolicitudDeAmistad(Perfil perfilSolicitante){
-        
-       
+    public void añadirSolicitudDeAmistad(Perfil perfilSolicitante) {
+
+        //ordeno el array de forma que me lea desde la fecha mas reciente .
+        for (int contador = solicitudAmistad.size(); contador > 0; contador--) {
+
+            if (baseDatos.buscarPerfil(nombre) != null) {
+
+                solicitudAmistad.add(contador, perfilSolicitante);
+
+            } else {
+                System.out.print("NO EXISTE EL PERFIL BUSCADO");
+            }
+
+        }
+
+    }
+
+    public void aceptarSolicitudDeAmistad(Perfil perfilSolicitante) {
+
+        //acepto la solicitud por lo tanto pasa a ser amigos
+        for (int contador = amigos.size(); contador > 0; contador--) {
+            amigos.add(contador, perfilSolicitante);
+        }
+    }
+
+    public void denegarSolicitudDeAmistad(Perfil perfilSolicitante) {
+
+        //elimino del array la solicitud
         solicitudAmistad.remove(perfilSolicitante);
-        
-        
+
     }
 
-    public void añadirMensaje(Mensaje m){
-        
-        
-        
+    public void añadirMensaje(Mensaje m) {
+
+        for (int contador = mensajePerfil.mensajes.size(); contador > 0; contador--) {
+            
+            mensajePerfil.mensajes.add(contador,generadorMenuCaraLibro.message);
+            
+        }
+
     }
 
-    public void eliminarMensaje(Mensaje m){
-        
+    public void eliminarMensaje(Mensaje m) {
+
         mensajePerfil.mensajes.remove(m);
-        
+
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public CaraLibroBD getBaseDatos() {
         return baseDatos;
     }
@@ -155,6 +154,5 @@ public class Perfil {
     public void setSolicitudAmistad(ArrayList<Perfil> solicitudAmistad) {
         this.solicitudAmistad = solicitudAmistad;
     }
-
 
 }
