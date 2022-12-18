@@ -284,7 +284,13 @@ public class GeneradorMenu {
      * @param destinatario
      */
     private void escribirMensaje(Perfil remitente, Perfil destinatario) {
-        
+        Scanner sc = new Scanner(System.in);
+        int dm;
+        System.out.println("Escribir mensaje (1) /n Volver ao menú (2)");
+        dm = sc.nextInt();
+        if(dm==1){
+            
+        }
     }
 
     /**
