@@ -38,7 +38,7 @@ public class Perfil {
        }
        
         
-        
+      
     }
 
     public void añadirPublicacion(Publicacion pub){
