@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class GeneradorMenu {
 
     CaraLibroBD baseDatos = new CaraLibroBD();
+    Perfil amigo = new Perfil();
+    Comentario comment = new Comentario();
+    Mensaje message = new Mensaje();
+    
 
     /**
      * Mostra o menu inicial ao iniciar o programa
@@ -84,7 +88,7 @@ public class GeneradorMenu {
      */
     public void mostrarBiografia(Perfil p) {
         Scanner op = new Scanner(System.in);
-        
+
         int create;
         System.out.println("Nueva Publicacion");
         create = op.nextInt();
@@ -109,7 +113,23 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarSolicitudesDeAmistad(Perfil p) {
-
+        Scanner sc = new Scanner(System.in);
+        int añadir;
+        for (int i = 0; i < amigo.amigos.size(); i++) {
+            System.out.println("Añadir (1), Eliminar(2)");
+        }
+        añadir = sc.nextInt();
+        switch (añadir) {
+            case 1:
+                amigo.añadirAmigo(p);
+                break;
+            case 2:
+                amigo.amigos.remove(p);
+                break;
+            default:
+                mostrarMenuPrincipal(p);
+                break;
+        }
     }
 
     /**
@@ -117,7 +137,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarListaAmigos(Perfil p) {
-
+        System.out.println(p.amigos);
     }
 
     /**
@@ -125,7 +145,17 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarMensajes(Perfil p) {
-
+        Scanner sc = new Scanner(System.in);
+        int menu;
+        System.out.println("Ver mensaxes (1) /n Volver ao menú principal (2)");
+        menu = sc.nextInt();
+        if (menu == 1) {
+            for (int i = 0; i < message.mensajes.size(); i++) {
+                System.out.println(message.mensajes);
+            }
+        } else if (menu == 2) {
+            mostrarMenuPrincipal(p);
+        }
     }
 
     /**
@@ -156,9 +186,9 @@ public class GeneradorMenu {
 
         System.out.println("Escribe tu Contraseña:");
         contraseña = sc.nextLine();
-
-        Perfil novo = new Perfil(nombre, contraseña);
-        baseDatos.añadirPerfil();
+        
+        Perfil p = new Perfil(contraseña, nombre);
+        baseDatos.añadirPerfil(p);
         mostrarMenuInicial();
 
     }
@@ -172,9 +202,17 @@ public class GeneradorMenu {
     private void iniciarSesion() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tu  nombre:");
-
+        String nombre = sc.nextLine();
+        
         System.out.println("Introduzca su contraseña:");
         String contraseña = sc.nextLine();
+        
+        if(baseDatos.perfiles.contains(nombre) && baseDatos.perfiles.contains(contraseña)){
+            mostrarMenuPrincipal();
+        } else {
+            System.out.println("Perfil incorrecto, intentelo de nuevo");
+            mostrarMenuInicial();
+        }
 
     }
 
@@ -207,7 +245,21 @@ public class GeneradorMenu {
      * @param p
      */
     private void escribirComentario(Publicacion pub, Perfil p) {
-
+        Scanner sc = new Scanner(System.in);
+        int escribir;
+        System.out.println("Escribir un comentario(1), volver ao menú principal (2)");
+        escribir=sc.nextInt();
+        switch (escribir) {
+            case 1:
+                pub.añadirComentario(comment);
+                break;
+            case 2:
+                mostrarMenuPrincipal(p);
+                break;
+            default:
+                System.out.println("Número non válido");
+                break;
+        }
     }
 
     /**
@@ -215,7 +267,15 @@ public class GeneradorMenu {
      * @param pub
      */
     private void hacerMeGusta(Publicacion pub) {
-
+        Scanner sc = new Scanner(System.in);
+        int like;
+        System.out.println("Da like(1) /n, Volve ao menú (2)");
+        like = sc.nextInt();
+        if(like==1){
+            pub.añadirMeGusta(amigo);
+        } else if(like == 2){
+            mostrarMenuPrincipal(p);
+        }
     }
 
     /**
@@ -224,7 +284,7 @@ public class GeneradorMenu {
      * @param destinatario
      */
     private void escribirMensaje(Perfil remitente, Perfil destinatario) {
-
+        
     }
 
     /**
