@@ -148,6 +148,7 @@ public class Perfil {
     public void setAmigos(ArrayList<Perfil> amigos) {
         this.amigos = amigos;
     }
+    
 
     public ArrayList<Perfil> getSolicitudAmistad() {
         return solicitudAmistad;
