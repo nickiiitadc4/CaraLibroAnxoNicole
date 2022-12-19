@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GeneradorMenu {
 
     CaraLibroBD baseDatos = new CaraLibroBD();
-    
+
     Comentario comment = new Comentario();
     Mensaje message = new Mensaje();
 
@@ -41,6 +41,7 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarMenuPrincipal(Perfil p) {
+        System.out.println("Benvido " + p.nombre);
         Scanner sc = new Scanner(System.in);
         System.out.println("(1)Estado");
         System.out.println("(2)Biografía");
@@ -51,13 +52,14 @@ public class GeneradorMenu {
         int opcionesPrincipales = sc.nextInt();
         switch (opcionesPrincipales) {
             case 1:
+                System.out.println(p.estado);
                 Scanner sc2 = new Scanner(System.in);
                 System.out.println("Queres cambiar o teu estado? Si(1)");
                 int cambiar = sc2.nextInt();
                 if (cambiar == 1) {
                     cambiarEstado(p);
                 } else {
-                    System.out.println();
+                    mostrarMenuPrincipal(p);
                 }
                 break;
             case 2:
@@ -74,13 +76,13 @@ public class GeneradorMenu {
                 System.out.println("Escribir mensaxe (1) /n Marcar como lido (2) /n Eliminar mensaxe (3)");
                 Scanner sc3 = new Scanner(System.in);
                 int dm = sc3.nextInt();
-                    if(dm == 1){
-                        escribirMensaje(p, p);
-                    } else if (dm == 2){
-                        marcarMensajeComoLeido(message);
-                    } else if (dm == 3){
-                        eliminarMensaje(message);
-                    }
+                if (dm == 1) {
+                    escribirMensaje(p, p);
+                } else if (dm == 2) {
+                    marcarMensajeComoLeido(message);
+                } else if (dm == 3) {
+                    eliminarMensaje(message);
+                }
                 break;
             case 6:
                 cerrarSesion();
@@ -97,24 +99,30 @@ public class GeneradorMenu {
      * @param p
      */
     public void mostrarBiografia(Perfil p) {
-        Scanner op = new Scanner(System.in);
-
+        Scanner sc = new Scanner(System.in);
         int create;
-        System.out.println("Nueva Publicacion");
-        create = op.nextInt();
+        System.out.println("Nueva Publicacion (1) /n Volver ao menú principal (2)");
+        create = sc.nextInt();
         if (create == 1) {
-            String text = null;
+            String text;
+            System.out.println("Introduce o texto da túa publicación");
+            text = sc.nextLine();
             Publicacion n = new Publicacion(p, text);
             p.añadirPublicacion(n);
-
             for (int i = 0; i < p.publicacionesUsuario.size(); i++) {
-                String auth = p.nombre;
-                if (p.publicacionesUsuario.get(i).texto.contentEquals(auth)) {
+                String autor = p.nombre;
+                if (p.publicacionesUsuario.get(i).texto.contentEquals(autor)) {
                     System.out.println(p.publicacionesUsuario.get(i).texto);
                     System.out.println(p.publicacionesUsuario.get(i).fecha);
 
                 }
             }
+        } else if (create == 2) {
+            mostrarMenuPrincipal(p);
+        } else {
+            System.out.println("Número non válido, proba outro");
+            mostrarBiografia(p);
+
         }
     }
 
@@ -205,25 +213,24 @@ public class GeneradorMenu {
 
     /**
      * Este método chamaráse se o usuario teclea 1 en mostrarMenuInicial,
-     * buscará en caraLibroBD un perfil que coincida cos parámetros que se tecleen.
+     * buscará en caraLibroBD un perfil que coincida cos parámetros que se
+     * tecleen.
      */
     private void iniciarSesion() {
-        
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tu  nombre:");
         String nombre = sc.nextLine();
-        
+
         System.out.println("Introduzca su contraseña:");
         String contraseña = sc.nextLine();
-        
+
         if (baseDatos.obtenerPerfil(nombre, contraseña) == baseDatos.pf) {
             mostrarMenuPrincipal(baseDatos.buscarPerfil(nombre));
-            
-        } else if(!baseDatos.obtenerPerfil(nombre,contraseña).equals(baseDatos)) {
+        } else {
             System.out.println("Perfil incorrecto, intentelo de nuevo");
             mostrarMenuInicial();
-            
-        
+
         }
     }
 
@@ -235,16 +242,10 @@ public class GeneradorMenu {
     private void cambiarEstado(Perfil p) {
         Scanner sc = new Scanner(System.in);
         String estado;
-        int salir = 0;
-        System.out.println("Pulsa 1 para salir");
         System.out.println("Nuevo estado:\n");
         estado = sc.nextLine();
-
         p.estado = estado;
         mostrarMenuPrincipal(p);
-        if (sc.nextInt() == 1) {
-            mostrarMenuPrincipal(p);
-        }
 
     }
 
@@ -262,7 +263,10 @@ public class GeneradorMenu {
         escribir = sc.nextInt();
         switch (escribir) {
             case 1:
+                System.out.println("Escribe o teu comentario");
+                comment.texto = sc.nextLine();
                 pub.añadirComentario(comment);
+                System.out.println(comment.texto);
                 break;
             case 2:
                 mostrarMenuPrincipal(p);
@@ -303,7 +307,10 @@ public class GeneradorMenu {
         if (dm == 1) {
             System.out.println(remitente + "Escribe a túa mensaxe");
             message.texto = sc.nextLine();
+            System.out.println(message);
             destinatario.añadirMensaje(message);
+            mostrarMenuPrincipal(remitente);
+
         } else {
             mostrarMenuPrincipal(remitente);
         }
@@ -320,6 +327,7 @@ public class GeneradorMenu {
         dm = sc.nextInt();
         if (dm == 1) {
             m.leido = true;
+            mostrarMenuPrincipal(m.remitente);
         } else if (dm == 2) {
             mostrarMenuPrincipal(m.remitente);
         }
@@ -341,5 +349,5 @@ public class GeneradorMenu {
             mostrarMenuPrincipal(p);
         }
     }
-        
+
 }
