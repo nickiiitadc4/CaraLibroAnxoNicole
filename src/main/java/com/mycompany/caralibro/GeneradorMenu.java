@@ -207,7 +207,7 @@ public class GeneradorMenu {
      * buscará en caraLibroBD un perfil que coincida cos parámetros que se tecleen.
      */
     private void iniciarSesion() {
-        Perfil sesion = new Perfil();
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tu  nombre:");
         String nombre = sc.nextLine();
@@ -215,10 +215,10 @@ public class GeneradorMenu {
         System.out.println("Introduzca su contraseña:");
         String contraseña = sc.nextLine();
         
-        if (baseDatos.obtenerPerfil(nombre,contraseña).equals(sesion)) {
+        if (baseDatos.obtenerPerfil(nombre, contraseña) == baseDatos.pf) {
             mostrarMenuPrincipal(baseDatos.buscarPerfil(nombre));
             
-        } else if(!baseDatos.obtenerPerfil(nombre,contraseña).equals(sesion)) {
+        } else if(!baseDatos.obtenerPerfil(nombre,contraseña).equals(baseDatos)) {
             System.out.println("Perfil incorrecto, intentelo de nuevo");
             mostrarMenuInicial();
             
