@@ -66,12 +66,14 @@ public class GeneradorMenu {
                 mostrarBiografia(p);
                 break;
             case 3:
+                System.out.println(p.amigos);
                 mostrarSolicitudesDeAmistad(p);
                 break;
             case 4:
                 mostrarListaAmigos(p);
                 break;
             case 5:
+                System.out.println(p.mensajePerfil.texto);
                 mostrarMensajes(p);
                 System.out.println("Escribir mensaxe (1) /n Marcar como lido (2) /n Eliminar mensaxe (3)");
                 Scanner sc3 = new Scanner(System.in);
@@ -110,15 +112,16 @@ public class GeneradorMenu {
             text = sc1.nextLine();
             Publicacion n = new Publicacion(p, text);
             p.añadirPublicacion(n);
-            
+
             for (int i = 0; i < p.publicacionesUsuario.size(); i++) {
                 String autor = p.nombre;
                 if (p.publicacionesUsuario.get(i).texto.contentEquals(autor)) {
                     System.out.println(p.publicacionesUsuario.get(i).texto);
                     System.out.println(p.publicacionesUsuario.get(i).fecha);
-                    
-                } 
-            } mostrarBiografia(p);
+
+                }
+            }
+            mostrarBiografia(p);
         } else if (create == 2) {
             mostrarMenuPrincipal(p);
         } else {
@@ -237,8 +240,8 @@ public class GeneradorMenu {
     }
 
     /**
-     * Cambia o estado do perfil, en menú principal mostrarase 
-     * o estado por pantalla.
+     * Cambia o estado do perfil, en menú principal mostrarase o estado por
+     * pantalla.
      *
      * @param p
      */
@@ -262,21 +265,24 @@ public class GeneradorMenu {
     private void escribirComentario(Publicacion pub, Perfil p) {
         Scanner sc = new Scanner(System.in);
         int escribir;
-        System.out.println("Escribir un comentario(1), volver ao menú principal (2)");
-        escribir = sc.nextInt();
-        switch (escribir) {
-            case 1:
-                System.out.println("Escribe o teu comentario");
-                comment.texto = sc.nextLine();
-                pub.añadirComentario(comment);
-                System.out.println(comment.texto);
-                break;
-            case 2:
-                mostrarMenuPrincipal(p);
-                break;
-            default:
-                System.out.println("Número non válido");
-                break;
+        for (int i = 0; i < pub.publicaciones.size(); i++) {
+
+            escribir = sc.nextInt();
+
+            switch (escribir) {
+                case 1:
+                    System.out.println("Escribe o teu comentario");
+                    comment.texto = sc.nextLine();
+                    pub.añadirComentario(comment);
+                    System.out.println(comment.texto);
+                    break;
+                case 2:
+                    mostrarMenuPrincipal(p);
+                    break;
+                default:
+                    System.out.println("Número non válido");
+                    break;
+            }
         }
     }
 
