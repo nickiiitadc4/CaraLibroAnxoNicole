@@ -35,6 +35,8 @@ public class Publicacion {
     }
 
     public void añadirMeGusta(Perfil autor) {
+        
+        
         for ( int contador= 0 ; contador < likesPublicacion.size(); contador++){
             likesPublicacion.add(autor);
         }

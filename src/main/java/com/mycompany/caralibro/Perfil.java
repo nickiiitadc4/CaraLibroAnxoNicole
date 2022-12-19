@@ -55,7 +55,8 @@ public class Perfil {
 
         //ordeno el array de forma que me lea desde la fecha mas reciente .
         for (int contador = solicitudAmistad.size(); contador > 0; contador--) {
-
+            
+            //llamo a buscar perfil si me da distinto a null añado la solicitud si nono
             if (baseDatos.buscarPerfil(nombre) != null) {
 
                 solicitudAmistad.add(contador, perfilSolicitante);
@@ -84,9 +85,11 @@ public class Perfil {
     }
 
     public void añadirMensaje(Mensaje m) {
-
+        
+        //añado el mensaje en orden de más reciente a mas antiguo
         for (int contador = mensajePerfil.mensajes.size(); contador > 0; contador--) {
-
+            
+            //A través de la posición del contador, guardo el mensaje en lugar corrrespondido
             mensajePerfil.mensajes.add(contador, generadorMenuCaraLibro.message);
 
         }
@@ -94,7 +97,7 @@ public class Perfil {
     }
 
     public void eliminarMensaje(Mensaje m) {
-
+        //elimino el mensaje del array
         mensajePerfil.mensajes.remove(m);
 
     }
