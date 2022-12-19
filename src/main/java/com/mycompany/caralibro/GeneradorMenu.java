@@ -209,14 +209,15 @@ public class GeneradorMenu {
      * crearUsuario()
      */
     private void iniciarSesion() {
+        Perfil sesion = new Perfil();
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce tu  nombre:");
         String nombre = sc.nextLine();
-
+        
         System.out.println("Introduzca su contraseña:");
         String contraseña = sc.nextLine();
 
-        if (baseDatos.perfiles.contains(nombre) && baseDatos.perfiles.contains(contraseña)) {
+        if (baseDatos.buscarPerfil(nombre) == sesion) {
             mostrarMenuPrincipal(baseDatos.buscarPerfil(nombre));
         } else {
             System.out.println("Perfil incorrecto, intentelo de nuevo");

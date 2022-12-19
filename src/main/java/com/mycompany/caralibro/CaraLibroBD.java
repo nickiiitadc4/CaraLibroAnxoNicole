@@ -7,8 +7,8 @@ public class CaraLibroBD {
 
     Perfil perfilesBD = new Perfil();
     ArrayList<Perfil> perfiles = new ArrayList<>();
-
-    public void obtenerPerfil(String nombre, String contraseña) {
+    Perfil pf;
+    public Perfil obtenerPerfil(String nombre, String contraseña) {
         Scanner entrada = new Scanner(System.in);
         
         String contr = contraseña;
@@ -21,8 +21,8 @@ public class CaraLibroBD {
                 for (int i = 0; i < perfiles.size(); i++) {
 
                     //recorro el array y comparo el nombre y las contraseñas
-                    if (perfiles.get(i).equals(nombr) && perfiles.get(i).equals(contr)) {
-                        perfiles.get(i);
+                    if (perfiles.get(i).nombre.contentEquals(nombr) && perfiles.get(i).contraseña.contentEquals(contr)) {
+                        pf = perfiles.get(i);
                         entrar = true;
                     }
                 }
@@ -30,8 +30,10 @@ public class CaraLibroBD {
             }
         } else {
             System.out.print("No existe el usuario");
+            GeneradorMenu gen = new GeneradorMenu();
+            gen.mostrarMenuInicial();
         }
-
+        return pf;
     }
 
     public Perfil buscarPerfil(String nombre) {
