@@ -17,7 +17,7 @@ public class Publicacion {
     public String texto;
     ArrayList<Perfil> perfiles;
     ArrayList<Publicacion> publicaciones = new ArrayList<>();
-    ArrayList<GeneradorMenu> likesPublicacion = new ArrayList<>();
+    ArrayList<Perfil>likesPublicacion = new ArrayList<>();
 
     public Publicacion() {
 
@@ -36,7 +36,7 @@ public class Publicacion {
 
     public void añadirMeGusta(Perfil autor) {
         for ( int contador= 0 ; contador < likesPublicacion.size(); contador++){
-            
+            likesPublicacion.add(autor);
         }
     }
 
