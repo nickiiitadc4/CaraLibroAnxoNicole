@@ -30,6 +30,7 @@ public class GeneradorMenu {
                 break;
             default:
                 System.out.println("Non introduciches un valor válido");
+                mostrarMenuInicial();
                 break;
         }
 
@@ -51,7 +52,7 @@ public class GeneradorMenu {
         switch (opcionesPrincipales) {
             case 1:
                 Scanner sc2 = new Scanner(System.in);
-                System.out.println("Queres cambiar o teu estado?");
+                System.out.println("Queres cambiar o teu estado? Si(1)");
                 int cambiar = sc2.nextInt();
                 if (cambiar == 1) {
                     cambiarEstado(p);
@@ -76,9 +77,9 @@ public class GeneradorMenu {
                     if(dm == 1){
                         escribirMensaje(p, p);
                     } else if (dm == 2){
-                        
+                        marcarMensajeComoLeido(message);
                     } else if (dm == 3){
-                        
+                        eliminarMensaje(message);
                     }
                 break;
             case 6:
