@@ -104,19 +104,21 @@ public class GeneradorMenu {
         System.out.println("Nueva Publicacion (1) /n Volver ao menú principal (2)");
         create = sc.nextInt();
         if (create == 1) {
+            Scanner sc1 = new Scanner(System.in);
             String text;
             System.out.println("Introduce o texto da túa publicación");
-            text = sc.nextLine();
+            text = sc1.nextLine();
             Publicacion n = new Publicacion(p, text);
             p.añadirPublicacion(n);
+            
             for (int i = 0; i < p.publicacionesUsuario.size(); i++) {
                 String autor = p.nombre;
                 if (p.publicacionesUsuario.get(i).texto.contentEquals(autor)) {
                     System.out.println(p.publicacionesUsuario.get(i).texto);
                     System.out.println(p.publicacionesUsuario.get(i).fecha);
-
-                }
-            }
+                    
+                } 
+            } mostrarBiografia(p);
         } else if (create == 2) {
             mostrarMenuPrincipal(p);
         } else {
