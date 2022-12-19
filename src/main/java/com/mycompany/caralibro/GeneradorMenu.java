@@ -73,13 +73,13 @@ public class GeneradorMenu {
                 System.out.println("Escribir mensaxe (1) /n Marcar como lido (2) /n Eliminar mensaxe (3)");
                 Scanner sc3 = new Scanner(System.in);
                 int dm = sc3.nextInt();
-                if(dm == 1){
-                    escribirMensaje(p, p);
-                } else if (dm == 2){
-                    marcarMensajeComoLeido(m);
-                } else if (dm == 3){
-                    eliminarMensaje(m);
-                }
+                    if(dm == 1){
+                        escribirMensaje(p, p);
+                    } else if (dm == 2){
+                        
+                    } else if (dm == 3){
+                        
+                    }
                 break;
             case 6:
                 cerrarSesion();
@@ -217,7 +217,7 @@ public class GeneradorMenu {
         String contraseña = sc.nextLine();
 
         if (baseDatos.perfiles.contains(nombre) && baseDatos.perfiles.contains(contraseña)) {
-            mostrarMenuPrincipal();
+            mostrarMenuPrincipal(baseDatos.buscarPerfil(nombre));
         } else {
             System.out.println("Perfil incorrecto, intentelo de nuevo");
             mostrarMenuInicial();
@@ -277,13 +277,13 @@ public class GeneradorMenu {
      */
     private void hacerMeGusta(Publicacion pub) {
         Scanner sc = new Scanner(System.in);
-        int like;
+        int opciones;
         System.out.println("Da like(1) /n, Volve ao menú (2)");
-        like = sc.nextInt();
-        if (like == 1) {
+        opciones = sc.nextInt();
+        if (opciones == 1) {
             pub.añadirMeGusta(amigo);
-        } else if (like == 2) {
-            mostrarMenuPrincipal();
+        } else if (opciones == 2) {
+            this.mostrarMenuPrincipal(amigo);
         }
     }
 
@@ -318,7 +318,7 @@ public class GeneradorMenu {
         if (dm == 1) {
             m.leido = true;
         } else if (dm == 2) {
-            mostrarMenuPrincipal();
+            mostrarMenuPrincipal(m.remitente);
         }
     }
 
@@ -338,4 +338,5 @@ public class GeneradorMenu {
             mostrarMenuPrincipal(p);
         }
     }
+        
 }
