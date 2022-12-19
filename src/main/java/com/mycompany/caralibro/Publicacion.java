@@ -12,7 +12,7 @@ public class Publicacion {
     //creamos el objeto d esta clase, al no dar parametros nos daria fecha actual
     Date fecha = new Date();
     Comentario comentarioPublicacion = new Comentario();
-    
+    GeneradorMenu gen = new GeneradorMenu();
     
     public String texto;
     ArrayList<Perfil> perfiles;
@@ -35,12 +35,7 @@ public class Publicacion {
     }
 
     public void añadirMeGusta(Perfil autor) {
-        
-        
-        
         for ( int contador= 0 ; contador < likesPublicacion.size(); contador++){
-            
-            
             
         }
     }

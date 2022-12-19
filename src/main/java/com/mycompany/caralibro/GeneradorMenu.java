@@ -237,7 +237,8 @@ public class GeneradorMenu {
     }
 
     /**
-     * Cambia o estado do perfil
+     * Cambia o estado do perfil, en menú principal mostrarase 
+     * o estado por pantalla.
      *
      * @param p
      */
@@ -291,6 +292,7 @@ public class GeneradorMenu {
         opciones = sc.nextInt();
         if (opciones == 1) {
             pub.añadirMeGusta(p);
+            System.out.println("Decheslle like á publicación de " + p);
         } else if (opciones == 2) {
             this.mostrarMenuPrincipal(p);
         }
