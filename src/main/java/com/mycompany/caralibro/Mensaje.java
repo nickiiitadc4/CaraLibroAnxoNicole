@@ -1,6 +1,5 @@
 package com.mycompany.caralibro;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 

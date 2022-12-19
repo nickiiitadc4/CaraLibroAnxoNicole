@@ -7,7 +7,7 @@ package com.mycompany.caralibro;
 
 /**
  *
- * @author a22jesusbm
+ * @author a22anxoll
  */
 public class Caralibro {
 

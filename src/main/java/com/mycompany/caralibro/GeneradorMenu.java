@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GeneradorMenu {
 
     CaraLibroBD baseDatos = new CaraLibroBD();
-    Perfil amigo = new Perfil();
+    
     Comentario comment = new Comentario();
     Mensaje message = new Mensaje();
 
@@ -124,16 +124,16 @@ public class GeneradorMenu {
     public void mostrarSolicitudesDeAmistad(Perfil p) {
         Scanner sc = new Scanner(System.in);
         int añadir;
-        for (int i = 0; i < amigo.amigos.size(); i++) {
+        for (int i = 0; i < p.amigos.size(); i++) {
             System.out.println("Añadir (1), Eliminar(2)");
         }
         añadir = sc.nextInt();
         switch (añadir) {
             case 1:
-                amigo.añadirAmigo(p);
+                p.añadirAmigo(p);
                 break;
             case 2:
-                amigo.amigos.remove(p);
+                p.amigos.remove(p);
                 break;
             default:
                 mostrarMenuPrincipal(p);

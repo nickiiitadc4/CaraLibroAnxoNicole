@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CaraLibroBD {
 
-    Perfil perfilesBD = new Perfil();
+    
     ArrayList<Perfil> perfiles = new ArrayList<>();
     Perfil pf;
     public Perfil obtenerPerfil(String nombre, String contraseña) {

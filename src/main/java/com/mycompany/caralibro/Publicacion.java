@@ -4,21 +4,14 @@ package com.mycompany.caralibro;
  *
  * @author nicki
  */
-import java.nio.channels.FileChannel;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Date;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Collection;
 
 public class Publicacion {
 
     //creamos el objeto d esta clase, al no dar parametros nos daria fecha actual
     Date fecha = new Date();
     Comentario comentarioPublicacion = new Comentario();
-    GeneradorMenu generadorMenuPubli = new GeneradorMenu();
     
     
     public String texto;
