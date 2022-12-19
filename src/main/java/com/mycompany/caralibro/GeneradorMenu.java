@@ -204,9 +204,7 @@ public class GeneradorMenu {
 
     /**
      * Este método chamaráse se o usuario teclea 1 en mostrarMenuInicial,
-     * buscará en caraLibroBD un perfil que coincida cos parámetros que se den
-     * por pantalla, se non atopa ningún perfil, chamará ao método
-     * crearUsuario()
+     * buscará en caraLibroBD un perfil que coincida cos parámetros que se tecleen.
      */
     private void iniciarSesion() {
         Perfil sesion = new Perfil();
@@ -216,14 +214,16 @@ public class GeneradorMenu {
         
         System.out.println("Introduzca su contraseña:");
         String contraseña = sc.nextLine();
-
-        if (baseDatos.buscarPerfil(nombre) == sesion) {
+        
+        if (baseDatos.obtenerPerfil(nombre,contraseña).equals(sesion)) {
             mostrarMenuPrincipal(baseDatos.buscarPerfil(nombre));
-        } else {
+            
+        } else if(!baseDatos.obtenerPerfil(nombre,contraseña).equals(sesion)) {
             System.out.println("Perfil incorrecto, intentelo de nuevo");
             mostrarMenuInicial();
+            
+        
         }
-
     }
 
     /**
@@ -277,14 +277,15 @@ public class GeneradorMenu {
      * @param pub
      */
     private void hacerMeGusta(Publicacion pub) {
+        Perfil p = new Perfil();
         Scanner sc = new Scanner(System.in);
         int opciones;
         System.out.println("Da like(1) /n, Volve ao menú (2)");
         opciones = sc.nextInt();
         if (opciones == 1) {
-            pub.añadirMeGusta(amigo);
+            pub.añadirMeGusta(p);
         } else if (opciones == 2) {
-            this.mostrarMenuPrincipal(amigo);
+            this.mostrarMenuPrincipal(p);
         }
     }
 

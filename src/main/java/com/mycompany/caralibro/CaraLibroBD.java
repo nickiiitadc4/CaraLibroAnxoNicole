@@ -8,9 +8,8 @@ public class CaraLibroBD {
     
     ArrayList<Perfil> perfiles = new ArrayList<>();
     Perfil pf;
+    
     public Perfil obtenerPerfil(String nombre, String contraseña) {
-        Scanner entrada = new Scanner(System.in);
-        
         String contr = contraseña;
         String nombr = nombre;
         boolean entrar = false;
