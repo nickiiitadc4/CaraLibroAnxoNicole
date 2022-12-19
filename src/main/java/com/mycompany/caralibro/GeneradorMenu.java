@@ -286,7 +286,7 @@ public class GeneradorMenu {
         }
     }
 
-    /**
+    /** Fai me gusta a unha publicación seleccionando o numero da mesma
      *
      * @param pub
      */
@@ -304,7 +304,8 @@ public class GeneradorMenu {
         }
     }
 
-    /**
+    /** Escribe unha mensaxe a un amigo, rexistra o nome do destinatario e do
+     * autor
      *
      * @param remitente
      * @param destinatario
@@ -326,7 +327,7 @@ public class GeneradorMenu {
         }
     }
 
-    /**
+    /** Marca unha mensaxe como leida
      *
      * @param m
      */
@@ -343,7 +344,7 @@ public class GeneradorMenu {
         }
     }
 
-    /**
+    /** Elimina unha mensaxe da clase Mensaje
      *
      * @param m
      */
