@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Perfil {
 
     CaraLibroBD baseDatos = new CaraLibroBD();
-    Publicacion publicacion1 = new Publicacion();
+    Publicacion n = new Publicacion();
     Mensaje mensajePerfil = new Mensaje();
     GeneradorMenu generadorMenuCaraLibro = new GeneradorMenu();
 
@@ -45,10 +45,8 @@ public class Perfil {
 
     public void añadirPublicacion(Publicacion pub) {
 
-        // leemos al reves el horario , para verlo ordenarlo por fecha7
-        
+        // leemos al reves el horario , para verlo ordenarlo por fecha
         for (int contador = publicacionesUsuario.size(); contador > 0; contador--) {
-
             publicacionesUsuario.add(contador, pub);
         }
     }
@@ -88,9 +86,9 @@ public class Perfil {
     public void añadirMensaje(Mensaje m) {
 
         for (int contador = mensajePerfil.mensajes.size(); contador > 0; contador--) {
-            
-            mensajePerfil.mensajes.add(contador,generadorMenuCaraLibro.message);
-            
+
+            mensajePerfil.mensajes.add(contador, generadorMenuCaraLibro.message);
+
         }
 
     }
@@ -110,11 +108,11 @@ public class Perfil {
     }
 
     public Publicacion getPublicacion1() {
-        return publicacion1;
+        return n;
     }
 
     public void setPublicacion1(Publicacion publicacion1) {
-        this.publicacion1 = publicacion1;
+        this.n = publicacion1;
     }
 
     public String getContraseña() {
@@ -148,7 +146,6 @@ public class Perfil {
     public void setAmigos(ArrayList<Perfil> amigos) {
         this.amigos = amigos;
     }
-    
 
     public ArrayList<Perfil> getSolicitudAmistad() {
         return solicitudAmistad;
