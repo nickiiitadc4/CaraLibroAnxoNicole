@@ -41,7 +41,7 @@ public class CaraLibroBD {
         for (int i = 0; i < perfiles.size(); i++) {
 
             //si contiene el nombre
-            if (perfiles.get(i).nombre.equals(nombre)) {
+            if (perfiles.get(i).nombre.contentEquals(nombre)) {
                 return perfiles.get(i);
 
             }
