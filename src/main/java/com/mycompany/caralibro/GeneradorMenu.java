@@ -53,9 +53,9 @@ public class GeneradorMenu {
         switch (opcionesPrincipales) {
             case 1:
                 System.out.println(p.estado);
-                Scanner sc2 = new Scanner(System.in);
+
                 System.out.println("Queres cambiar o teu estado? Si(1)");
-                int cambiar = sc2.nextInt();
+                int cambiar = sc.nextInt();
                 if (cambiar == 1) {
                     cambiarEstado(p);
                 } else {
@@ -76,8 +76,8 @@ public class GeneradorMenu {
                 System.out.println(p.mensajePerfil.texto);
                 mostrarMensajes(p);
                 System.out.println("Escribir mensaxe (1) /n Marcar como lido (2) /n Eliminar mensaxe (3)");
-                Scanner sc3 = new Scanner(System.in);
-                int dm = sc3.nextInt();
+
+                int dm = sc.nextInt();
                 if (dm == 1) {
                     escribirMensaje(p, p);
                 } else if (dm == 2) {
@@ -97,6 +97,7 @@ public class GeneradorMenu {
     }
 
     /**
+     * Mostra a biografía coas suas publicacions
      *
      * @param p
      */
@@ -105,6 +106,11 @@ public class GeneradorMenu {
         int create;
         System.out.println("Nueva Publicacion (1) /n Volver ao menú principal (2)");
         create = sc.nextInt();
+        for (int i = 0; i < p.publicacionesUsuario.size(); i++) {
+            System.out.print(i);
+            System.out.println(p.publicacionesUsuario);
+        }
+
         if (create == 1) {
             Scanner sc1 = new Scanner(System.in);
             String text;
@@ -118,10 +124,10 @@ public class GeneradorMenu {
                 if (p.publicacionesUsuario.get(i).texto.contentEquals(autor)) {
                     System.out.println(p.publicacionesUsuario.get(i).texto);
                     System.out.println(p.publicacionesUsuario.get(i).fecha);
-
                 }
             }
             mostrarBiografia(p);
+
         } else if (create == 2) {
             mostrarMenuPrincipal(p);
         } else {
@@ -139,7 +145,7 @@ public class GeneradorMenu {
         Scanner sc = new Scanner(System.in);
         int añadir;
         for (int i = 0; i < p.amigos.size(); i++) {
-            System.out.println("Añadir (1), Eliminar(2)");
+            System.out.println("Añadir (1), Eliminar(2), Volver ao menu principal (3)");
         }
         añadir = sc.nextInt();
         switch (añadir) {
@@ -149,8 +155,12 @@ public class GeneradorMenu {
             case 2:
                 p.amigos.remove(p);
                 break;
-            default:
+            case 3:
                 mostrarMenuPrincipal(p);
+                break;
+            default:
+                System.out.println("Número non válido");
+                mostrarSolicitudesDeAmistad(p);
                 break;
         }
     }
@@ -174,7 +184,9 @@ public class GeneradorMenu {
         menu = sc.nextInt();
         if (menu == 1) {
             for (int i = 0; i < message.mensajes.size(); i++) {
-                System.out.println(message.mensajes);
+                System.out.println(i "" + "" message.mensajes 
+            
+          );
             }
         } else if (menu == 2) {
             mostrarMenuPrincipal(p);
@@ -286,7 +298,8 @@ public class GeneradorMenu {
         }
     }
 
-    /** Fai me gusta a unha publicación seleccionando o numero da mesma
+    /**
+     * Fai me gusta a unha publicación seleccionando o numero da mesma
      *
      * @param pub
      */
@@ -304,7 +317,8 @@ public class GeneradorMenu {
         }
     }
 
-    /** Escribe unha mensaxe a un amigo, rexistra o nome do destinatario e do
+    /**
+     * Escribe unha mensaxe a un amigo, rexistra o nome do destinatario e do
      * autor
      *
      * @param remitente
@@ -312,13 +326,14 @@ public class GeneradorMenu {
      */
     private void escribirMensaje(Perfil remitente, Perfil destinatario) {
         Scanner sc = new Scanner(System.in);
+        String texto;
         int dm;
         System.out.println("Escribir mensaje (1) /n Volver ao menú (2)");
         dm = sc.nextInt();
         if (dm == 1) {
             System.out.println(remitente + "Escribe a túa mensaxe");
-            message.texto = sc.nextLine();
-            System.out.println(message);
+            texto = sc.nextLine();
+            System.out.println(message.texto);
             destinatario.añadirMensaje(message);
             mostrarMenuPrincipal(remitente);
 
@@ -327,7 +342,8 @@ public class GeneradorMenu {
         }
     }
 
-    /** Marca unha mensaxe como leida
+    /**
+     * Marca unha mensaxe como leida
      *
      * @param m
      */
@@ -344,7 +360,8 @@ public class GeneradorMenu {
         }
     }
 
-    /** Elimina unha mensaxe da clase Mensaje
+    /**
+     * Elimina unha mensaxe da clase Mensaje
      *
      * @param m
      */

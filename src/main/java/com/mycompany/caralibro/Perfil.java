@@ -46,7 +46,7 @@ public class Perfil {
     public void añadirPublicacion(Publicacion pub) {
 
         // leemos al reves el horario , para verlo ordenarlo por fecha
-        for (int contador = publicacionesUsuario.size(); contador > 0; contador--) {
+        for (int contador = publicacionesUsuario.size(); contador < 0; contador++) {
             publicacionesUsuario.add(contador, pub);
         }
     }
@@ -110,12 +110,12 @@ public class Perfil {
         this.baseDatos = baseDatos;
     }
 
-    public Publicacion getPublicacion1() {
+    public Publicacion getn() {
         return n;
     }
 
-    public void setPublicacion1(Publicacion publicacion1) {
-        this.n = publicacion1;
+    public void setn(Publicacion n) {
+        this.n = n;
     }
 
     public String getContraseña() {
