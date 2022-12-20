@@ -54,11 +54,15 @@ public class GeneradorMenu {
             case 1:
                 System.out.println(p.estado);
 
-                System.out.println("Queres cambiar o teu estado? Si(1)");
+                System.out.println("Cambiar estado (1) /n Volver ao menu(2)");
                 int cambiar = sc.nextInt();
                 if (cambiar == 1) {
                     cambiarEstado(p);
-                } else {
+                } else if(cambiar == 2){
+                    mostrarMenuPrincipal(p);
+                    
+                } else{
+                    System.out.println("Introduce un valor válido");
                     mostrarMenuPrincipal(p);
                 }
                 break;
@@ -66,11 +70,11 @@ public class GeneradorMenu {
                 mostrarBiografia(p);
                 break;
             case 3:
-                System.out.println(p.amigos);
                 mostrarSolicitudesDeAmistad(p);
                 break;
             case 4:
                 mostrarListaAmigos(p);
+                mostrarMenuPrincipal(p);
                 break;
             case 5:
                 System.out.println(p.mensajePerfil.texto);
@@ -143,17 +147,19 @@ public class GeneradorMenu {
      */
     public void mostrarSolicitudesDeAmistad(Perfil p) {
         Scanner sc = new Scanner(System.in);
+        System.out.println(p.amigos);
         int añadir;
-        for (int i = 0; i < p.amigos.size(); i++) {
-            System.out.println("Añadir (1), Eliminar(2), Volver ao menu principal (3)");
-        }
+        System.out.println("Añadir (1), Eliminar(2), Volver ao menu principal (3)");
         añadir = sc.nextInt();
+        
         switch (añadir) {
             case 1:
                 p.añadirAmigo(p);
+                mostrarSolicitudesDeAmistad(p);
                 break;
             case 2:
                 p.amigos.remove(p);
+                mostrarSolicitudesDeAmistad(p);
                 break;
             case 3:
                 mostrarMenuPrincipal(p);
@@ -165,7 +171,7 @@ public class GeneradorMenu {
         }
     }
 
-    /**
+    /** Mostra a lista de amigos do perfil co que iniciamos sesión
      *
      * @param p
      */
@@ -173,7 +179,7 @@ public class GeneradorMenu {
         System.out.println(p.amigos);
     }
 
-    /**
+    /** mostra as mensaxes que recibeu o perfil, permi
      *
      * @param p
      */
@@ -184,9 +190,8 @@ public class GeneradorMenu {
         menu = sc.nextInt();
         if (menu == 1) {
             for (int i = 0; i < message.mensajes.size(); i++) {
-                System.out.println(i "" + "" message.mensajes 
-            
-          );
+                System.out.print(i);
+                System.out.println(message.mensajes);
             }
         } else if (menu == 2) {
             mostrarMenuPrincipal(p);
